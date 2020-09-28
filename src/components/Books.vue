@@ -1,20 +1,32 @@
 <template>
-  <Books />
+  <v-card>
+    <v-card-title>
+      <v-btn color="primary">add to cart</v-btn>
+      <v-spacer></v-spacer>
+      <v-text-field
+          v-model="search"
+          append-icon="mdi-magnify"
+          label="Search"
+          single-line
+          hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-data-table
+        v-model="selected"
+        :headers="headers"
+        :items="books"
+        :search="search"
+        :single-select="singleSelect"
+        item-key="name"
+        show-select
+    ></v-data-table>
+  </v-card>
 </template>
 
 <script>
-
-import Books from "@/components/Books";
 export default {
-  name: 'home',
-  components: {Books},
+  name: 'books',
   data: () => ({
-    items: [
-      { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-      { title: 'Photos', icon: 'mdi-image' },
-      { title: 'About', icon: 'mdi-help-box' },
-    ],
-    numItems: 0,
     selected: [],
     search: '',
     singleSelect: false,
@@ -44,7 +56,10 @@ export default {
         genre: 'fantasy',
       }
     ]
-  }),
+  })
 }
-
 </script>
+
+<style scoped>
+
+</style>
