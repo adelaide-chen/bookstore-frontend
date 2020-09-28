@@ -3,8 +3,8 @@
 </template>
 
 <script>
+import Books from "../components/Books";
 
-import Books from "@/components/Books";
 export default {
   name: 'home',
   components: {Books},
